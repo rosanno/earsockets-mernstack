@@ -7,7 +7,7 @@
   "scripts": {
     "start": "cd server && yarn start",
     "dev": "concurrently \"cd client && yarn dev\" \"cd server && yarn dev\"",
-    "prebuild": "cd server && npm run build",
+    "prebuild": "cd server && yarn build",
     "build": "cd client && yarn build"
   }
 }
