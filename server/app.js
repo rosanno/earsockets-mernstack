@@ -17,7 +17,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: ['http://localhost:3000', prcess.env.CLIENT_URL],
+    origin: ['http://localhost:3000', process.env.CLIENT_URL],
     credentials: true,
   })
 );
