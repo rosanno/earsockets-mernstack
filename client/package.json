@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "yarn install --ignore-engines && vite build",
     "preview": "vite preview"
+  },
+  "engines": {
+    "node": ">=14 <16"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
