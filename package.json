@@ -5,8 +5,9 @@
     "concurrently": "^7.3.0"
   },
   "scripts": {
-    "build": "cd client && yarn build",
+    "start": "cd server && yarn start",
     "dev": "concurrently \"cd client && yarn dev\" \"cd server && yarn dev\"",
-    "start": "cd server && yarn start"
+    "prebuild": "cd server && npm run build",
+    "build": "cd client && yarn build"
   }
 }
