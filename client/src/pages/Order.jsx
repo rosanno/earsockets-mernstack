@@ -25,12 +25,12 @@ const Order = () => {
   const { data, isLoading } = useGetOrderQuery();
   const [removeOrder] = useRemoveOrderMutation();
 
-  // React.useEffect(() => {
-  //   console.log(auth?.token);
-  //   if (!auth?.token) {
-  //     navigate('/');
-  //   }
-  // }, [auth?.token]);
+  React.useEffect(() => {
+    console.log(auth?.token);
+    if (!auth?.token) {
+      navigate('/');
+    }
+  }, [auth?.token]);
 
   if (isLoading) {
     return <Loader />;
