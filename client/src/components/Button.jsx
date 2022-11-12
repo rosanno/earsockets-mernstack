@@ -1,19 +1,20 @@
 import React from 'react';
-import Box from '@mui/material/Box';
+import CustomButton from '@mui/material/Button';
 
-const Button = ({ children, fontSize }) => {
+const Button = ({ children, fontSize, isLoading }) => {
   return (
-    <Box
-      component="button"
+    <CustomButton
+      variant="contained"
+      disabled={isLoading ? true : false}
       sx={{
         background: 'none',
-        border: '2px solid #013D29',
         borderRadius: '50px',
-        padding: '.8rem 3rem',
+        padding: '.6rem 3rem',
         fontSize: fontSize,
         cursor: 'pointer',
         fontWeight: 'bold',
-        color: '#013D29',
+        color: '#fff',
+        background: '#06661E',
         marginTop: '2rem',
         '&:hover': {
           background: '#013D29',
@@ -24,7 +25,7 @@ const Button = ({ children, fontSize }) => {
       }}
     >
       {children}
-    </Box>
+    </CustomButton>
   );
 };
 
