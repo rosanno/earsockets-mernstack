@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Ratings from '../components/Ratings';
+import CircularProgress from '@mui/material/CircularProgress';
 import Divider from '@mui/material/Divider';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -17,11 +18,12 @@ import { useSelector } from 'react-redux';
 
 const ProductDetails = () => {
   const { slug } = useParams();
-  const { data, error, isLoading } = useGetProductQuery(slug);
+  const { data, isLoading } = useGetProductQuery(slug);
   const auth = useSelector((state) => state.auth);
   const [index, setIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [addToCart, { isLoading: loading }] = useAddToCartMutation();
+  const load = true;
 
   const handleAddToCart = async (color, colorImg) => {
     const res = await addToCart({
@@ -230,8 +232,21 @@ const ProductDetails = () => {
                 onClick={() =>
                   handleAddToCart(data?.color[index], data?.img[index])
                 }
+                sx={{ position: 'relative' }}
               >
-                <Button fontSize="1rem">Add to Cart</Button>
+                <Button isLoading={loading} fontSize="1rem">
+                  Add to Cart
+                </Button>
+                {loading && (
+                  <CircularProgress
+                    size={24}
+                    sx={{
+                      position: 'absolute',
+                      top: '54%',
+                      left: '14%',
+                    }}
+                  />
+                )}
               </Box>
             </Box>
           </Grid>
