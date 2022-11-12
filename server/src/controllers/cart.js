@@ -214,11 +214,13 @@ export const clearCart = async (req, res) => {
 
   try {
     await Cart.findOneAndUpdate(
-      userId,
+      { userId },
       {
         $set: { product: [], subTotal: 0 },
       },
-      { new: true }
+      {
+        returnOriginal: false,
+      }
     );
     res.sendStatus(200);
   } catch (error) {
