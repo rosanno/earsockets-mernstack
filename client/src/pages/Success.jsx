@@ -4,10 +4,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  useClearCartMutation,
-  useLazyGetCartQuery,
-} from '../redux/features/cartSlice';
+import { useClearCartMutation } from '../redux/features/cartSlice';
 import { useSelector } from 'react-redux';
 import { usePostOrderMutation } from '../redux/features/orderApiSlice';
 import Loader from '../components/Loader';

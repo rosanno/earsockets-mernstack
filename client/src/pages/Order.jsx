@@ -26,7 +26,6 @@ const Order = () => {
   const [removeOrder] = useRemoveOrderMutation();
 
   React.useEffect(() => {
-    console.log(auth?.token);
     if (!auth?.token) {
       navigate('/');
     }
